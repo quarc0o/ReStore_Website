@@ -283,7 +283,7 @@ body {
 }
 
 .footer .footercenter {
-  flex:1;
+  flex: 1;
   align-items: center;
   justify-content: center;
 }
@@ -294,7 +294,7 @@ body {
 }
 
 .footer .supporter {
-  flex:1;
+  flex: 1;
   margin-left: auto;
 }
 
@@ -303,8 +303,8 @@ body {
   max-height: 10%;
 }
 
-.supporter p{
-  font-size:8px;
+.supporter p {
+  font-size: 8px;
 }
 
 .fa {
@@ -407,75 +407,80 @@ body {
   gap: 30px;
 }
 
-/* ----------------------------- FAQ PAGE ---------------------------------------- */
+/* ----------------------------- FAQ PAGE [NEW] ---------------------------------------- */
+
+/* Sets the width for the accordion. Sets the margin to 90px on the top and bottom and auto to the left and right */
 
 .accordion {
-  width: 100%;
+  width: 800px;
+  margin: 90px auto;
+  color: black;
+  background-color: white;
+  padding: 45px 45px;
 }
 
-.test_container {
-  background-color: blue;
-  display: flex;
-  padding: 50px;
+.accordion .container {
+  position: relative;
+  margin: 10px 10px;
+}
 
-  background-color: rgba(212, 211, 211, 0.671);
-  color: #444;
+/* Positions the labels relative to the .container. Adds padding to the top and bottom and increases font size. Also makes its cursor a pointer */
+
+.accordion .label {
+  position: relative;
+  padding: 10px 0;
+  font-size: 30px;
+  color: black;
   cursor: pointer;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
 }
 
-.faq_section {
-  background-color: bisque;
-  padding: 20px;
-  display: flex;
+.accordion .label::before {
+  content: "+";
+  color: black;
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  font-size: 30px;
+  transform: translateY(-50%);
 }
 
-h2.accordion.active,
-h2.accordion:hover {
-  background-color: rgb(199, 0, 0);
-}
+/* Hides the content (height: 0), decreases font size, justifies text and adds transition */
 
-.faq {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  margin: 0 auto;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.faq p {
-  font-weight: bold;
-}
-
-.faq h2 {
-}
-
-.someContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-}
-
-.faq .panel {
-  padding: 0 0px;
-  background-color: aqua;
-  max-height: 0;
+.accordion .content {
+  position: relative;
+  background: white;
+  height: 0;
+  font-size: 20px;
+  text-align: justify;
+  width: 780px;
   overflow: hidden;
-  transition: 0.4s ease-in-out;
-  opacity: 0;
+  transition: 0.5s;
 }
 
-div.panel.show {
-  opacity: 1;
-  max-height: 500px; /* Whatever you like, as long as its more than the height of the content (on all screen sizes) */
+/* Adds a horizontal line between the contents */
+
+.accordion hr {
+  width: 100;
+  margin-left: 0;
+  border: 1px solid grey;
 }
+
+/* Unhides the content part when active. Sets the height */
+
+.accordion .container.active .content {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+/* Changes from plus sign to negative sign once active */
+
+.accordion .container.active .label::before {
+  content: "-";
+  font-size: 30px;
+}
+
+/* ----------------------------- FAQ PAGE ---------------------------------------- */
 
 p {
   line-height: 22px;
@@ -485,12 +490,6 @@ p {
 a {
   text-decoration: none;
   color: hsl(340, 93%, 63%);
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .text1 {
@@ -505,11 +504,10 @@ a {
   background-color: rgb(253, 244, 246);
   margin: auto;
   width: 80%;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   margin-bottom: 20px;
 }
-
 
 .box .text1 {
   margin: 0;
@@ -520,5 +518,4 @@ a {
 .box img {
   width: 50%;
   margin: 0;
-
 }
